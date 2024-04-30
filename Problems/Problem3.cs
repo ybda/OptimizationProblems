@@ -10,7 +10,7 @@ internal class Problem3 : IProblem
 
     public void Run()
     {
-        var solver = new Solver(Name, OptimizationProblemType.CLP_LINEAR_PROGRAMMING);
+        var solver = new Solver(Name, OptimizationProblemType.SCIP_MIXED_INTEGER_PROGRAMMING);
 
         Variable tableVar = solver.MakeIntVar(0, int.MaxValue, "tableVar");
         Variable cupboardVar = solver.MakeIntVar(0, int.MaxValue, "cupboardVar");
