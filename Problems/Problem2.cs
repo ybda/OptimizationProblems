@@ -1,13 +1,15 @@
 ﻿using Google.OrTools.LinearSolver;
 using static Google.OrTools.LinearSolver.Solver;
 
-namespace OptimizationProblems.Problems.Problem2;
+namespace OptimizationProblems.Problems;
 
 internal class Problem2 : IProblem
 {
+    public const string Name = "2. Circuits";
+
     public void Run()
     {
-        var solver = new Solver("Cakes", OptimizationProblemType.SCIP_MIXED_INTEGER_PROGRAMMING);
+        var solver = new Solver(Name, OptimizationProblemType.SCIP_MIXED_INTEGER_PROGRAMMING);
 
         Variable typeAVar = solver.MakeIntVar(0, int.MaxValue, "TypeA");
         Variable typeBVar = solver.MakeIntVar(0, int.MaxValue, "TypeB");
@@ -31,6 +33,6 @@ internal class Problem2 : IProblem
 
         ResultStatus resultStatus = solver.Solve();
 
-        Util.PrintProblemResult(resultStatus, objective, [typeAVar, typeBVar]);
+        Util.PrintProblemResult(Name, resultStatus, objective, solver.variables());
     }
 }

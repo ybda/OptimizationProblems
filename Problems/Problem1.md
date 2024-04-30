@@ -1,4 +1,3 @@
-# Problem
 A bakery wants to maximize its profit by producing two types of cakes: Chocolate Cake and Vanilla Cake. The bakery has limited resources:
 
 - 480 minutes of oven time per day

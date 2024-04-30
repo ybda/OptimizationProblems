@@ -1,6 +1,4 @@
 ﻿using OptimizationProblems.Problems;
-using OptimizationProblems.Problems.Problem1;
-using OptimizationProblems.Problems.Problem2;
 
 namespace OptimizationProblems
 {
@@ -8,8 +6,16 @@ namespace OptimizationProblems
     {
         static void Main()
         {
-            IProblem p = new Problem2();
-            p.Run();
+            IList<IProblem> ps = [
+                new Problem1(), 
+                new Problem2()
+            ];
+            
+            foreach(var p in ps)
+            {
+                p.Run();
+                Console.WriteLine("\n");
+            }
         }
     }
 }

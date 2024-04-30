@@ -26,15 +26,16 @@ internal static class Util
         Console.WriteLine(VarNamesWithSolutionValues(vars));
     }
 
-    public static void PrintProblemResult(ResultStatus resultStatus, Objective objective, IEnumerable<Variable> vars)
+    public static void PrintProblemResult(string problemName, ResultStatus resultStatus, Objective objective, IEnumerable<Variable> vars)
     {
+        Console.WriteLine($"# Optimal solution '{problemName}'");
+
         if (resultStatus != ResultStatus.OPTIMAL)
         {
             Console.WriteLine($"No optimal solution found: {resultStatus}");
             return;
         }
 
-        Console.WriteLine($"-- Optimal solution --");
         PrintVarNamesWithSolutionValues(vars);
         Console.WriteLine();
         Console.WriteLine($"Profit: {objective.Value()}");
