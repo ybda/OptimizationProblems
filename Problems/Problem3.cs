@@ -20,20 +20,31 @@ internal class Problem3 : IProblem
         objective.SetCoefficient(cupboardVar, 1800);
         objective.SetMaximization();
 
-        Constraint woodType1Constraint = solver.MakeConstraint(0, 40, "woodType1");
-        Constraint woodType2Constraint = solver.MakeConstraint(0, 60, "woodType2");
-        Constraint woodType3Constraint = solver.MakeConstraint(0, 321, "woodType3");
-
-        woodType1Constraint.SetCoefficient(tableVar, 0.2);
-        woodType2Constraint.SetCoefficient(tableVar, 0.1);
-        woodType3Constraint.SetCoefficient(tableVar, 1.2);
-
-        woodType1Constraint.SetCoefficient(cupboardVar, 0.1);
-        woodType2Constraint.SetCoefficient(cupboardVar, 0.3);
-        woodType3Constraint.SetCoefficient(cupboardVar, 1.5);
+        AddConstraints(solver, tableVar, cupboardVar);
 
         ResultStatus resultStatus = solver.Solve();
 
         Util.PrintProblemResult(Name, resultStatus, objective, solver.variables());
+    }
+
+    private static void AddConstraints(Solver solver, Variable tableVar, Variable cupboardVar)
+    {
+        {
+            Constraint woodType1Constraint = solver.MakeConstraint(0, 40, "woodType1");
+            woodType1Constraint.SetCoefficient(tableVar, 0.2);
+            woodType1Constraint.SetCoefficient(cupboardVar, 0.1);
+        }
+
+        {
+            Constraint woodType2Constraint = solver.MakeConstraint(0, 60, "woodType2");
+            woodType2Constraint.SetCoefficient(tableVar, 0.1);
+            woodType2Constraint.SetCoefficient(cupboardVar, 0.3);
+        }
+
+        {
+            Constraint woodType3Constraint = solver.MakeConstraint(0, 321, "woodType3");
+            woodType3Constraint.SetCoefficient(tableVar, 1.2);
+            woodType3Constraint.SetCoefficient(cupboardVar, 1.5);
+        }
     }
 }
