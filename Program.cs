@@ -8,7 +8,8 @@ namespace OptimizationProblems
         {
             IList<IProblem> ps = [
                 new Problem1(), 
-                new Problem2()
+                new Problem2(),
+                new Problem3(),
             ];
             
             foreach(var p in ps)
