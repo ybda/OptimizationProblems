@@ -6,7 +6,7 @@ A bakery wants to maximize its profit by producing two types of cakes: Chocolate
 
 The profit, oven time, flour, and sugar requirements for each type of cake are:
 
-| Cake Type |	Profit |	Oven Time (minutes) |	Flour (pounds) |	Sugar (pounds) |
+| Cake Type |	Profit |	Max Oven Time (minutes) |	Max Flour (pounds) |	Max Sugar (pounds) |
 | --- | --- | --- | --- | --- |
 | Chocolate |	15 |	17 |	10 |	8 |
 | Vanilla |	12 |	15 |	8 |	6 |
