@@ -9,10 +9,10 @@ internal class Problem2 : IProblem
 
     public void Run()
     {
-        var solver = new Solver(Name, OptimizationProblemType.SCIP_MIXED_INTEGER_PROGRAMMING);
+        var solver = CreateSolver("GLOP") ?? throw new Exception("FAIL");
 
-        Variable typeAVar = solver.MakeIntVar(0, int.MaxValue, "TypeA");
-        Variable typeBVar = solver.MakeIntVar(0, int.MaxValue, "TypeB");
+        Variable typeAVar = solver.MakeNumVar(0, double.PositiveInfinity, "TypeA");
+        Variable typeBVar = solver.MakeIntVar(0, double.PositiveInfinity, "TypeB");
 
         Objective objective = solver.Objective();
         objective.SetCoefficient(typeAVar, 5);

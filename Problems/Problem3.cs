@@ -10,10 +10,10 @@ internal class Problem3 : IProblem
 
     public void Run()
     {
-        var solver = new Solver(Name, OptimizationProblemType.SCIP_MIXED_INTEGER_PROGRAMMING);
+        var solver = CreateSolver("GLOP") ?? throw new Exception("FAIL");
 
-        Variable tableVar = solver.MakeIntVar(0, int.MaxValue, "tableVar");
-        Variable cupboardVar = solver.MakeIntVar(0, int.MaxValue, "cupboardVar");
+        Variable tableVar = solver.MakeNumVar(0, double.PositiveInfinity, "tableVar");
+        Variable cupboardVar = solver.MakeNumVar(0, double.PositiveInfinity, "cupboardVar");
 
         Objective objective = solver.Objective();
         objective.SetCoefficient(tableVar, 600);

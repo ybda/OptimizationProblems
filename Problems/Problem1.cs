@@ -10,11 +10,11 @@ internal class Problem1 : IProblem
     public void Run()
     {
         // Create the linear solver
-        var solver = new Solver(Name, OptimizationProblemType.SCIP_MIXED_INTEGER_PROGRAMMING);
+        var solver = CreateSolver("GLOP") ?? throw new Exception("FAIL");
 
         // Define the variables
-        Variable chocolateCakesVar = solver.MakeIntVar(0, int.MaxValue, "ChocolateCakes");
-        Variable vanillaCakesVar = solver.MakeIntVar(0, int.MaxValue, "VanillaCakes");
+        Variable chocolateCakesVar = solver.MakeNumVar(0, double.PositiveInfinity, "ChocolateCakes");
+        Variable vanillaCakesVar = solver.MakeNumVar(0, double.PositiveInfinity, "VanillaCakes");
 
         // Define the objective: maximize profit
         Objective objective = solver.Objective();
