@@ -1,10 +1,10 @@
-﻿Manufacturer of printed circuits has a stock of:
+﻿We have a stock of:
 
 * 40 woodType1
 * 60 woodType2
 * 321 woodType3
 
-and is required to produce two types of circuits.
+and it is required to produce two types of circuits.
 
 **Table**
 Requires:
@@ -22,4 +22,4 @@ Requires:
 
 Profit: £1800
 
-How many of each circuit should be produced to maximize profit?
+How many of each product should be produced to maximize profit?
